@@ -19,9 +19,11 @@ con = pymysql.connect(host='localhost',
 
 cursor = con.cursor()
 
+
 cursor.execute(""" 
     SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato;
 """)
+
 
 linhas = cursor.fetchall()
 
@@ -37,19 +39,22 @@ for linha in linhas:
    # print ("Data: ", dataCont)
    # print ("Soma do Valor Liquido: ", sumValorLiq)
    
-print (sumValLiq[-10:])
-print ("\n\n")
-print (lista_data[-10:])
+#print (sumValLiq[-10:])
+#print ("\n\n")
+#print (lista_data[-10:])
 
-x = lista_data[-10:]
-y = sumValLiq[-10:]
+x = lista_data[-30:]
+y = sumValLiq[-30:]
 
-plt.plot(x, y, label = 'Soma do Valor Líquido Diário', color = 'r')
+meta_mansal = 1534707.22
+
+plt.plot(x, y, label = 'Valor Líquido', color = 'r')
 plt.legend()
+plt.title("Soma do Valor Líquido Diário")
 plt.grid(True)
 plt.xticks(rotation=20)
 
-plt.savefig('teste2.png', dpi=1024)
+plt.savefig('teste2.png', dpi=2000)
 
 con.commit()
 con.close()
