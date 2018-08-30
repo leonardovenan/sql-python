@@ -10,11 +10,6 @@ con = pymysql.connect(host='localhost',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
-cursor = con.cursor()
-
-cursor.execute(""" 
-    SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato;
-""")
 
 con.commit()
 con.close()
