@@ -6,7 +6,6 @@ Created on Tue Aug 28 14:14:32 2018
 """
 import pymysql
 import matplotlib.pyplot as plt
-import pandas as pd
 
 lista_data=[]
 sumValLiq = []
@@ -45,9 +44,10 @@ print (lista_data[-10:])
 x = lista_data[-10:]
 y = sumValLiq[-10:]
 
-plt.plot(lista_data[-10:], sumValLiq[-10:], label = 'Soma do Valor Líquido Diário', color = 'r')
+plt.plot(x, y, label = 'Soma do Valor Líquido Diário', color = 'r')
 plt.legend()
 plt.grid(True)
+plt.xticks(rotation=20)
 
 plt.savefig('teste2.png', dpi=1024)
 
