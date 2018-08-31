@@ -3,7 +3,7 @@ import pymysql
 print ("connecting to the database...")
 con = pymysql.connect(host='localhost',
                              user='root',
-                             password='1234567',
+                             password='xxx',
                              db='sgi_producao',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
