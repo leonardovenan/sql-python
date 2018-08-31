@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 lista_data=[]
 sumValLiq = []
-print ("connecting to the database...")
+print ("Connecting to the database...")
 con = pymysql.connect(host='localhost',
                              user='root',
                              password='1234567',

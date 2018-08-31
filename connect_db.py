@@ -1,8 +1,6 @@
 import pymysql
 
-lista_data=[]
-sumValLiq = []
-
+print ("connecting to the database...")
 con = pymysql.connect(host='localhost',
                              user='root',
                              password='1234567',
@@ -10,6 +8,6 @@ con = pymysql.connect(host='localhost',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
-
+print ("Connected")
 con.commit()
 con.close()
