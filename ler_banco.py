@@ -43,18 +43,21 @@ for linha in linhas:
 #print ("\n\n")
 #print (lista_data[-10:])
 
-x = lista_data[-30:]
-y = sumValLiq[-30:]
+x = lista_data[-12:]
+y = sumValLiq[-12:]
 
-meta_mansal = 1534707.22
+m_mensal = 1534707.22
 
-plt.plot(x, y, label = 'Valor Líquido', color = 'r')
+z = [m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal]
+
+plt.plot(x, y, label = 'Valor Líquido', color = 'red')
+plt.plot(x, z, label = 'Meta diária', color = 'blue')
 plt.legend()
 plt.title("Soma do Valor Líquido Diário")
 plt.grid(True)
 plt.xticks(rotation=20)
 
-plt.savefig('teste2.png', dpi=2000)
+plt.savefig('teste2.png', dpi=1500)
 
 con.commit()
 con.close()
