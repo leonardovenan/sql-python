@@ -12,18 +12,17 @@ sumValLiq = []
 print ("Connecting to the database...")
 con = pymysql.connect(host='localhost',
                              user='root',
-                             password='xxxxx',
+                             password='1234567',
                              db='sgi_producao',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-print ("Connected")
+print ("Connected!")
 cursor = con.cursor()
 
 
 cursor.execute(""" 
     SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato;
 """)
-
 
 linhas = cursor.fetchall()
 
@@ -50,11 +49,10 @@ m_mensal = 1534707.22
 
 z = [m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal]
 
-plt.plot(x, y, label = 'Valor Líquido', color = 'red')
+plt.bar(x, y, label = 'Valor Líquido', color = 'red')
 plt.plot(x, z, label = 'Meta diária', color = 'blue')
-plt.legend()
+plt.legend(loc = 2, prop={'size':7})
 plt.title("Soma do Valor Líquido Diário")
-plt.grid(True)
 plt.xticks(rotation=20)
 
 plt.savefig('teste2.png', dpi=1500)
@@ -62,6 +60,7 @@ plt.savefig('teste2.png', dpi=1500)
 con.commit()
 con.close()
 
+print("\n\nDisconnected to the database!")
 
 
 
