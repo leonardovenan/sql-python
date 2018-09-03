@@ -35,7 +35,7 @@ for linha in linhas:
     dataCont = linha['dataContrato']
     sumValorLiq = linha['sum(e.valorLiquido)']
     
-    #concatenar dados em duas lista
+    #concatenar dados em suas respectivas listas 
     lista_data.append(dataCont)
     sumValLiq.append(sumValorLiq)
     
@@ -47,11 +47,13 @@ for linha in linhas:
 #print ("\n\n")
 #print (lista_data[-10:])
 
+#somente os 12 valores referentes ao mes de agosto, pode ser alterado para os
+#outro meses
 x = lista_data[-12:]
 y = sumValLiq[-12:]
 
-m_mensal = 1534707.22
-
+m_mensal = 1534707.22 #meta mensal, existe no banco de dados
+#lista de comparação para meta mensal
 z = [m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal,m_mensal]
 plt.bar(x, y, label = 'Valor Líquido', color = 'red')
 plt.ylabel("R$")
@@ -59,7 +61,6 @@ plt.xlabel("Data")
 plt.plot(x, z, label = 'Meta diária', color = 'blue')
 plt.legend(loc = 2, prop={'size':7})
 plt.title("Soma do Valor Líquido Diário")
-
 
 plt.xticks(rotation=20)
 
