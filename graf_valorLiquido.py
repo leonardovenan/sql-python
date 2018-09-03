@@ -14,7 +14,7 @@ width = 0.2
 
 
 print ("Connecting to the database...")
-con = pymysql.connect(host='localhost',
+con = pymysql.connect(       host='localhost',
                              user='root',
                              password='1234567',
                              db='sgi_producao',
