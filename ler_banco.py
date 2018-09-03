@@ -20,7 +20,7 @@ con = pymysql.connect(host='localhost',
 print ("Connected!")
 cursor = con.cursor()
 
-#o cursor vai ser a única coisa que vai ser alterado para gerenciar informações
+#o cursor vai ser a única coisa que vai ser alterada para gerenciar informações
 #de outras tabelas do SGI.
 cursor.execute(""" 
     SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato 
