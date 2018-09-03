@@ -23,7 +23,7 @@ con = pymysql.connect(host='localhost',
 print ("Connected!")
 cursor = con.cursor()
 
-
+#primeiro cursor 
 cursor.execute(""" 
     SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato 
     HAVING SUM(e.valorLiquido) > 0;

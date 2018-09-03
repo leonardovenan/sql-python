@@ -6,8 +6,10 @@ Created on Tue Aug 28 14:14:32 2018
 """
 import pymysql
 
+#listas para armazenamento de variáveis
 lista_data=[]
-sumValLiq = []
+sumValLiq = [] 
+
 print ("Connecting to the database...")
 con = pymysql.connect(host='localhost',
                              user='root',
@@ -18,7 +20,8 @@ con = pymysql.connect(host='localhost',
 print ("Connected!")
 cursor = con.cursor()
 
-
+#o cursor vai ser a única coisa que vai ser alterado para gerenciar informações
+#de outras tabelas do SGI.
 cursor.execute(""" 
     SELECT e.dataContrato,sum(e.valorLiquido) FROM sgi_producao.emprestimo e where e.estadoProposta='Contrato' group by e.dataContrato 
     HAVING SUM(e.valorLiquido) > 0;
